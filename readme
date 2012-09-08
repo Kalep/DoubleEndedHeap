@@ -1,0 +1,51 @@
+1,Description    
+    This is a useful data structure called double-ended Heap implemented by Kalep(9thrabbit@gmail.com)
+in C++.It behaves like a minimum heap or maximum heap.But it provides additional features. It supports find 
+minimum and maximum element of an array at the same time. 
+    Also, it provides functions to manipulate elements,such as:
+    1) insert an element 
+    2) remove minimum or maximum element from heap
+    3) remove element from any valid index,even the element is not minimum as well as maximum .
+    The algorithm time complexity of different operations is listed below.
+    1) build a heap  O(nlog(n))
+    2) insert an element O(log(n))
+    3) remove an element O(log(n))
+    4) get the minimum or maximum element O(1)
+    
+2,Usage
+  1) firstly, you should include header file DoubleEndedHeap.h into your code.
+  
+  2) secondly, declare a heap:
+     DoubleEndedHeap<int> myHeap;
+     
+  3) thirdly,insert element into the declared heap:
+     myHeap.insert(4);
+     myHeap.insert(14);
+     myHeap.insert(3);
+     myHeap.insert(7);
+  4) get the minimum element or maximum element   
+     int minElement = myHeap.Min();
+     int maxElement = myHeap.Max();
+  5) remove an element
+     myHeap.remove(2); // the 3rd element
+  5) traverse the heap
+     for example: from min to max
+     while(!myheap.empty()){
+        cout<< myHeap.Min()<<" ";
+        myHeap.removeMin()
+     }
+     cout<<endl;
+     
+3,Advanced Topics
+  1) Default heap size is 1000, you can create a self defined heap size by specified size in constructor:
+     DoubleEndedHeap<int> myHeap(50);
+  2) Default compare function is less, you can define a functor.
+     struct MyRule{
+     public:
+        bool operator()(const MyObject& left, const MyObject& right){
+           //your rules here
+        };
+     };
+     Then,you can define
+     DoubleEndedHeap<MyObject,MyRule> myHeap;
+     
